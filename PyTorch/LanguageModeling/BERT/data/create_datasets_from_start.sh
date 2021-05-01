@@ -14,6 +14,7 @@
 # limitations under the License.
 
 to_download=${1:-"wiki_only"}
+N_PROCS=${2:-"4"}
 
 #Download
 if [ "$to_download" = "wiki_books" ] ; then
@@ -30,7 +31,7 @@ python3 /workspace/bert/data/bertPrep.py --action download --dataset sst-2
 if [ "$to_download" = "wiki_books" ] ; then
     python3 /workspace/bert/data/bertPrep.py --action text_formatting --dataset bookscorpus
 fi
-python3 /workspace/bert/data/bertPrep.py --action text_formatting --dataset wikicorpus_en
+python3 /workspace/bert/data/bertPrep.py --action text_formatting --dataset wikicorpus_en --n_processes N_PROCS
 
 if [ "$to_download" = "wiki_books" ] ; then
     DATASET="books_wiki_en_corpus"

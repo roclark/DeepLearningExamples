@@ -267,6 +267,12 @@ This repository provides scripts to download, verify, and extract the following 
 To download, verify, extract the datasets, and create the shards in `.hdf5` format, run:  
 `/workspace/bert/data/create_datasets_from_start.sh`
 
+Passing the `N_PROC` environmental variable allows the script to use additional CPU cores where applicable to boost performance, similar to the following:
+
+```
+N_PROC=256 /workspace/bert/data/create_datasets_from_start.sh
+```
+
 Note: For fine tuning only, Wikipedia and Bookscorpus dataset download and preprocessing can be skipped by commenting it out.
 
 - Download Wikipedia only for pretraining
